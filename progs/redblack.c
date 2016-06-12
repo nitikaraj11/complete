@@ -10,7 +10,7 @@ struct node
 FILE* outputFile;
 
 typedef struct node* nptr;
-int verifyredblack(nptr,nptr);
+int verifyredblack(nptr,nptr);	//To verify if tree is red-black balanced
 nptr redblack(nptr,nptr);	//Red-Black Balancing
 nptr rr(nptr,nptr);		//Right Rotation
 nptr lr(nptr,nptr);		//Left Rotation
