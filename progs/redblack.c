@@ -8,7 +8,9 @@ struct node
 	char color;
 };
 FILE* outputFile;
+
 typedef struct node* nptr;
+int verifyredblack(nptr,nptr);
 nptr redblack(nptr,nptr);	//Red-Black Balancing
 nptr rr(nptr,nptr);		//Right Rotation
 nptr lr(nptr,nptr);		//Left Rotation
@@ -84,6 +86,10 @@ x: if(key<new->key)
    }
   }if(i<number)
   goto y;
+	if(verifyredblack(root,root)<0)
+		printf("\n Tree is not redblack balanced");
+	else
+		printf("\n Tree is redblack balance");
   inorder(root);
 }
 struct node* inorder(struct node* root)
@@ -172,10 +178,7 @@ nptr lr(nptr z,nptr root)
 	nptr temp=y->right;
 	y->right=temp->left;
 	temp->left=y;
-/*	if(!y->prev)
-		root=temp;
-	else*/
-		temp->prev=z->prev;	
+	temp->prev=z->prev;	
 	y->prev=temp;
 	return temp;
 }
@@ -184,13 +187,34 @@ nptr rr(nptr z,nptr root)
 	nptr temp=x->left;
 	x->left=temp->right;
 	temp->right=x;
-/*	if(!x->prev)
-		root=temp;
-	else*/
-		temp->prev=z->prev;
+	temp->prev=z->prev;
 	x->prev=temp;
 	return temp;
 }
+int verifyredblack( nptr new,nptr root)
+{	int leftmax,leftmin,rightmax,rightmin,max,min;
+	if(!new)
+		return 0;
+	if(root->color!='b')
+		return -1;
+	if(new->color=='r')
+		if(new->left->color=='r' || new->right->color=='r')
+			return -1;
+	if(!(new->color=='r' || new->color=='b'))
+		return -1;
+	if(verifyredblack(new->left,root)<0)
+		return -1;
+	if(verifyredblack(new->right,root)<0)
+		return -1;
+	max=(leftmax>rightmax?leftmax:rightmax)+1;
+	min=(leftmin<rightmin?leftmin:rightmin)+1;
+	if(max<-2*min)
+		return 1;
+	else 
+		return -1;
+}
+	
+			
 void preorderDotDump (nptr root, FILE* outputFile)
 
 {
