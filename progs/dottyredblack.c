@@ -23,7 +23,7 @@ nptr inorder(struct node*);	//Traverses tree -inorderly
 void dotDump(nptr,FILE*);	//For each node calls preorderDotDump()
 void preorderDotDump(nptr,FILE*);//Writes into dotty-file
 
-//Function: Allocates memore to new node
+//Function: Allocates memory to new node
 //Parameter: Key value
 struct node* newnode(int key)
 {	
