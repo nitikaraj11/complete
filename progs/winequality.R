@@ -7,9 +7,9 @@ library(rpart)
 library(randomForest)
 
 #importing databases
-winequality.red <- read.csv("C:/RStudio/Wine-Quality/winequality-red.csv", sep=";")
+winequality.red <- read.csv('http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv', header = TRUE, sep = ';')
+winequality.wine <- read.csv('http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv', header = TRUE, sep = ';'
 View(winequality.red)
-winequality.white <- read.csv("C:/RStudio/Wine-Quality/winequality-white.csv", sep=";")
 View(winequality.white)
 
 #Detecting Outliers via boxplots
