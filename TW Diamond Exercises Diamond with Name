@@ -22,7 +22,7 @@ public static void nameInDiamond(int height, String name){
             count += 2;
         }
         count -= 4;
-        for(int i = height;i >= 1; i--){
+        for(int i = height; i >= 1; i--){
         
             for(int j = height; j >= i; j--){
                 System.out.print(" ");
