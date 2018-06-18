@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Main {
+
+    public static void generate(int n)
+    {
+        int flag;
+        for(int i = 2; i <= n; i++){
+
+            if( n % i == 0){
+
+                flag = 1;
+                for(int j = 2; j <= i/2; j++){
+                
+                    if( i % j == 0){
+                    
+                        flag=0;
+                        break;
+                    }
+                }
+                if(flag){
+                
+                    System.out.print(i+" ");
+                }
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter value of n ");
+        int  n = sc.nextInt();
+        generate(n);
+        sc.close();
+    }
+}
