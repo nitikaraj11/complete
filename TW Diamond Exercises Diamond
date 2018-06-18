@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Main {
+
+        public static void diamond(int height){
+        int count = 1;
+        for(int i = 1; i <= height; i++){
+        
+            for(int j = height-1; j >= i; j--){
+                
+                System.out.print(" ");
+            }
+            for(int k = 0; k < count; k++){
+            
+                System.out.print("*");
+            }
+            System.out.println();
+            count += 2;
+        }
+        count -= 4;
+        for(int i = height; i >= 1; i--){
+        
+            for(int j = height; j >= i; j--){
+                System.out.print(" ");
+            }
+            for(int k = 0; k < count; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+            count -= 2;
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter height of diamond ");
+        int  height = sc.nextInt();
+        diamond(height);
+        sc.close();
+    }
+}
