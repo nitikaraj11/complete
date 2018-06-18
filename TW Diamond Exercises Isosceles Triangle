@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Main {
+
+       public static void Isoceles(int height){
+        int count = 1;
+        for(int i = 1; i <= height; i++){
+        
+            for(int j = height-1; j >= i ; j--){
+                System.out.print(" ");
+            }
+            for(int k = 0; k < count; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+            count += 2;
+       }
+   }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the height of triangle ");
+        int  height = sc.nextInt();
+        Isoceles(height);
+        sc.close();
+    }
+}
